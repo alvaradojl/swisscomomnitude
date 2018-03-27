@@ -28,7 +28,7 @@ angular
     .config(function ($stateProvider, $urlRouterProvider) {
 
         // $urlRouterProvider.when('/dashboard', '/dashboard/overview');
-        $urlRouterProvider.otherwise('/explorer');
+        $urlRouterProvider.otherwise('/explorerv2');
 
         $stateProvider
             .state('base', {
@@ -42,10 +42,10 @@ angular
                 templateUrl: 'views/explorer.html',
                 controller: 'ExplorerCtrl'
             }) 
-            .state('explorer2', {
-                url: '/explorer2',
+            .state('explorerv2', {
+                url: '/explorerv2',
                 parent: 'base',
-                templateUrl: 'views/explorer2.html',
+                templateUrl: 'views/explorerv2.html',
                 controller: 'Explorer2Ctrl'
             });
 

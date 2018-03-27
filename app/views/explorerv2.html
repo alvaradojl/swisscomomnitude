@@ -218,18 +218,23 @@ Inspired by http://dribbble.com/shots/917819-iPad-Calendar-Login?list=shots&sort
                      <tbody>
                        <tr ng-repeat="trx in trxs">
                          <td scope="row">
-                            <h5>TX#{{trx.transactionId}}</h5>
-                            <br/><label>{{trx.trxName}}</label>
-                            <br/><label>{{trx.timeStamp}}</label>
+                            <div class="badge badge-warning" style="word-wrap: break-word;">TX#{{trx.transactionId}}</div>
+                            <br/><br/><div >{{trx.trxName}}</div>
+                            <br/><br/><div>{{trx.timeStamp}}</div>
                          
-                            <br/><strong ng-if="trx.trxName == 'updateReplenishmentRequestStatus'" > &gt;&gt; {{trx.trxInfo.newStatus}}</strong>
-                            <ul> 
-                                <li ng-if="trx.trxName == 'createReplenishmentRequest'"><label> Replenishment Requet Id: </label> {{trx.trxInfo.replenishmentRequestId}}</li>
-                                <li ng-if="trx.trxName == 'createReplenishmentRequest'"><label> Product Id: </label> {{trx.trxInfo.productId}}</li>
-                                <li ng-if="trx.trxName == 'createReplenishmentRequest'"><label> Product Label: </label> {{trx.trxInfo.productLabel}}</li>
-                                <li ng-if="trx.trxName == 'createReplenishmentRequest'"><label> Product Quantity: </label> {{trx.trxInfo.quantity}}</li>
-                                <li ng-if="trx.trxName == 'createReplenishmentRequest'"><label> CS Card Ref: </label> {{trx.trxInfo.csCartReference}}</li>
-                            </ul> 
+                            <br/><div class="badge bg-teal" ng-if="trx.trxName == 'updateReplenishmentRequestStatus'" >&gt;&gt; {{trx.trxInfo.newStatus}}</div>
+                            
+                            <br/><div class="badge bg-teal"  ng-if="trx.trxName == 'createReplenishmentRequest'">createReplenishmentRequest<div>
+                             
+                                
+                                        <br/><label>Replenishment Requet Id: </label> {{trx.trxInfo.replenishmentRequestId}}</li>
+                                        <br/><label ng-if="trx.trxName == 'createReplenishmentRequest'">Product Id: </label> {{trx.trxInfo.productId}}</li>
+                                        <br/><label ng-if="trx.trxName == 'createReplenishmentRequest'"> Product Label: </label> {{trx.trxInfo.productLabel}}</li>
+                                        <br/><label ng-if="trx.trxName == 'createReplenishmentRequest'">Product Quantity: </label> {{trx.trxInfo.quantity}}</li>
+                                        <br/><label ng-if="trx.trxName == 'createReplenishmentRequest'"> CS Card Ref: </label> {{trx.trxInfo.csCartReference}}</li>
+                              
+                              
+                           
                         </td>
                           
                        </tr>
