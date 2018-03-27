@@ -41,6 +41,12 @@ angular
                 parent: 'base',
                 templateUrl: 'views/explorer.html',
                 controller: 'ExplorerCtrl'
+            }) 
+            .state('explorer2', {
+                url: '/explorer2',
+                parent: 'base',
+                templateUrl: 'views/explorer2.html',
+                controller: 'Explorer2Ctrl'
             });
 
     })
