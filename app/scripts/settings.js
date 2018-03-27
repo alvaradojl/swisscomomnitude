@@ -1,5 +1,5 @@
 settings = {
-  hyperledgerUrl: 'http://193.246.47.177:30003/',
+  hyperledgerUrl: 'http://omnitude.blockchain-factory.ch:3333/',
   channelName: 'channel1',
   chaincodeName: 'loyalty'
 }

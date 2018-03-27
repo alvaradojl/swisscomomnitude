@@ -7,13 +7,13 @@ Inspired by http://dribbble.com/shots/917819-iPad-Calendar-Login?list=shots&sort
         <div class="">
         	<!--img src="images/flat-avatar.png" class="user-avatar" /-->
 			<h1>Omnitude <small>Blockchain Explorer</small></h1>
-			<form role="form" ng-submit="login()">
 
                 <div style="width: 100%; display: flex">
                 <ul class="list-group block-list">
                     <li ng-repeat="block in blocks" class="list-group-item block-list-item" ng-class="{'selected-item':hovering}"
                         ng-mouseenter="hovering=true"
-                        ng-mouseleave="hovering=false">
+                        ng-mouseleave="hovering=false"
+                        ng-click='selectBlock(block.blockNumber)'>
                         <div style="display: flex">
                             <div class="block-icon" style="width:30px">
                                 <span style="color: #343644; font-size: 20px" ><b>block</b></span>
@@ -32,17 +32,23 @@ Inspired by http://dribbble.com/shots/917819-iPad-Calendar-Login?list=shots&sort
                 </ul>
 
                 <ul class="list-group trx-list">
-                    <li ng-repeat="block in blocks" class="list-group-item trx-list-item">
+                    <li ng-repeat="trx in trxs" class="list-group-item trx-list-item">
                         <div style="display: flex">
                             <div class="block-icon" style="width:30px">
                                 <span style="color: #343644; font-size: 20px" ><b>trx</b></span>
                             </div>
                             <div class="trx-item-entries">
                                 <ul style="text-align: left">
-                                    <li class="trx-item-entry"><label>Block Id: </label> {{block.blockNumber}}</li>
-                                    <li class="trx-item-entry"><label>Data Hash: </label> {{block.dataHash}}</li>
-                                    <li class="trx-item-entry"><label>Hash: </label> {{block.hash}}</li>
-                                    <li class="trx-item-entry"><label>Previous Hash: </label> {{block.previousHash}}</li>
+                                    <li class="trx-item-entry"><label>TRX Id: </label> {{trx.transactionId}}</li>
+                                    <li class="trx-item-entry"><label>tStamp: </label> {{trx.timeStamp}}</li>
+                                    <li class="trx-item-entry"><label>TRX Name: </label> {{trx.trxName}}</li>
+                                    <li ng-if="trx.trxName == 'updateReplenishmentRequestStatus'" class="trx-item-entry-child"><label> Replenishment Requet Id: </label> {{trx.trxInfo.replenishmentRequestId}}</li>
+                                    <li ng-if="trx.trxName == 'updateReplenishmentRequestStatus'" class="trx-item-entry-child"><label> New Status: </label> {{trx.trxInfo.newStatus}}</li>
+                                    <li ng-if="trx.trxName == 'createReplenishmentRequest'" class="trx-item-entry-child"><label> Replenishment Requet Id: </label> {{trx.trxInfo.replenishmentRequestId}}</li>
+                                    <li ng-if="trx.trxName == 'createReplenishmentRequest'" class="trx-item-entry-child"><label> Product Id: </label> {{trx.trxInfo.productId}}</li>
+                                    <li ng-if="trx.trxName == 'createReplenishmentRequest'" class="trx-item-entry-child"><label> Product Label: </label> {{trx.trxInfo.productLabel}}</li>
+                                    <li ng-if="trx.trxName == 'createReplenishmentRequest'" class="trx-item-entry-child"><label> Product Quantity: </label> {{trx.trxInfo.quantity}}</li>
+                                    <li ng-if="trx.trxName == 'createReplenishmentRequest'" class="trx-item-entry-child"><label> CS Card Ref: </label> {{trx.trxInfo.csCartReference}}</li>
                                 </ul>
                             </div>
                         </div>
@@ -64,8 +70,6 @@ Inspired by http://dribbble.com/shots/917819-iPad-Calendar-Login?list=shots&sort
                 </div>
 
                 <button type="submit" ng-model="loginDisabled" ng-disabled="getLoginDisabled()" class="btn btn-white btn-outline btn-lg btn-rounded">Login</button-->
-
-			</form>
 
 		</div>
 	</div>
