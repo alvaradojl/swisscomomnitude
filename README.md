@@ -1,13 +1,12 @@
-## Ani Theme - Free AngularJS Dashboard Starter Theme
+# Omnitude Blockchain Explorer
 
-### Note: This project is no longer maintained.
 
-## [Demo](http://rawgit.com/start-angular/ani-theme/master/dist/index.html)
 
-Ani Theme is a Boilerplate for Animated AngularJS Starter Theme written with Bootstrap LESS. Powered by Gulp.
+## [Live App](http://omnitude.blockchain-factory.ch)
+
+This project demonstrates an easy way to query the blocks and transactions hosted in hyperledger.
 ![Preview](/examples/preview.png)
 
-Find out more [Free Angular Themes at StartAngular.com](http://www.startangular.com/).
 
 ## Installation
 1. Clone this project or Download that ZIP file
@@ -20,9 +19,17 @@ Find out more [Free Angular Themes at StartAngular.com](http://www.startangular.
 - `gulp build` - concat, minify and generate the files for deployment
 
 
-### Goodness of Bootstrap Less
-In the source, we have the less files of Bootstrap attached and the variables have been updated to create this theme. You can change the variable in the less file. Animation and Transitions are in separate less file.   
+## Explanation
+The api exposed is the reflection of the smart contract agreed by the partners of the network. Omnitude is safely hosted in Swisscom Blockchain Factory Infrastructure. A hyperledger network contains the following roles: Network Managers, Peers, Orderers and Certificate Authorities. 
 
-### Automation tools
+Each transaction pertains to a single channel that is shared across specific peers. The transactions are bundled up into blocks.
 
-- [Gulp](http://gulpjs.com/)
+For now, a single smart contract is controlling the replenishment across the supply chain, but eventually each hyperledger peer (node) of the network will be the gatekeeper of each status across the supply chain. For every change of status there is an event triggered to inform the rest of the nodes.  
+
+### Other Omnitude websites
+
+- [ICO](https://omnitude.tech/)
+- [Portal](https://portal.omnitude.store/)
+- [Demo1](https://demo1.omnitude.store/)
+- [Demo2](https://demo2.omnitude.store/)
+- [Demo3](https://demo3.omnitude.store/) 
