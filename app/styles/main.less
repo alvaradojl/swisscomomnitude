@@ -56,16 +56,22 @@ tr {
 }
 
 .block-list{
-  color: black !important;
+  color: #353644 !important;
   width: 50%;
-  padding: 20px;
+  height: ~"calc(100vh - 230px)";
+  margin: 10px;
+  overflow-x: auto;
+  text-align: left;
 }
 
 .trx-list{
   text-align: left;
-  color: black !important;
+  color: #353644 !important;
+  height: ~"calc(100vh - 230px)";
   width: 50%;
-  padding: 20px;
+  margin: 10px;
+  overflow-x: auto;
+
 }
 
 .block-item-entry {
@@ -76,17 +82,128 @@ tr {
   list-style-type: none;
 }
 
+.block-item-entries {
+  background-color: #f2f3f4;
+  color: #353644;
+  width: 100%;
+}
+
+.trx-item-entries {
+  background-color: #f2f3f4;
+  color: #353644;
+  width: 100%;
+}
+
 .block-list-item{
-  color: #585656 !important;
+  height: fit-content;
+  width: fit-content;
+  color: #353644 !important;
+  min-width: 100%;
+  background-color:#585656;
+  padding: 0px;
+  border-color: white;
 }
 
 .trx-list-item{
-  color: #585656 !important;
+  color: #353644 !important;
+  height: fit-content;
+  width: fit-content;
+  min-width: 100%;
+  background-color:#585656;
+  border-color: white;
+  padding: 0px;
 }
 
 .trx-item-entry-child{
   list-style-type: none;
-  margin-left: 20px;
+  margin-left: 15px;
   font-size: 12px;
 
+}
+
+.block-icon{
+  width:70px;
+  margin:10px;
+  color: #e7e215;
+  font-size: 20px;
+  text-align: center;
+}
+
+.next-btn{
+  background-color: #e42f69;
+  border: 0px;
+  border-radius: 0px;
+  font-size: 23px;
+  font-weight: bolder;
+}
+
+.selected-item {
+  background-color: #e52f68;
+}
+
+.selected-btn {
+  background-color: #585656 !important;
+}
+
+.head{
+  display: flex;
+  position: relative;
+  left: -27px;
+  top: -28px;
+  width: ~"calc(100vw + 27px)";
+  background-color: #f2f3f4;
+}
+
+.page-title{
+  font-weight: bolder;
+  color: #353644;
+  text-align: right;
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding-right: 57px;
+}
+
+.list-group-item:first-child {
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+}
+
+.list-group-item:last-child {
+  margin-bottom: 0;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+@media (max-device-width: 500px) {
+  .channel-info {
+    display: block;
+  }
+
+  .block-list{
+    width: 100%;
+  }
+
+  .trx-list{
+    width: 100%;
+  }
+
+}
+
+@media (min-device-width: 501px) {
+  .channel-info {
+    display: flex;
+  }
+
+  .block-list{
+    width: 50%;
+  }
+
+  .trx-list{
+    width: 50%;
+  }
+
+  .login-page {
+    overflow: hidden !important;
+  }
 }

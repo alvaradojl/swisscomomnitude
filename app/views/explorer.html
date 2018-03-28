@@ -2,29 +2,40 @@
 Inspired by http://dribbble.com/shots/917819-iPad-Calendar-Login?list=shots&sort=views&timeframe=ever&offset=461
 -->
 <div class="login-page">
-	<div class="row">
-		<!--div class="col-md-4 col-lg-4 col-md-offset-4 col-lg-offset-4"-->
+    <div class="row">
+        <!--div class="col-md-4 col-lg-4 col-md-offset-4 col-lg-offset-4"-->
         <div class="">
-        	<!--img src="images/flat-avatar.png" class="user-avatar" /-->
-			<h1>Omnitude <small>Blockchain Explorer</small></h1>
+            <div class="head">
+                <img src="images/logo-3.png" class="user-avatar"/>
+                <div class="page-title">
+                    <h2 style="margin-top: 10px"><span style="color: #e52f68; font-size: 25px"
+                                                       class="glyphicon glyphicon-link bg-fade"></span> BLOCKCHAIN
+                        <small>EXPLORER</small>
+                    </h2>
+                </div>
+            </div>
 
-                <div style="width: 100%; display: flex">
+            <div class="channel-info" style="width: 100%;">
+
                 <ul class="list-group block-list">
-                    <li ng-repeat="block in blocks" class="list-group-item block-list-item" ng-class="{'selected-item':hovering}"
+                    <li ng-repeat="block in blocks" class="list-group-item block-list-item"
                         ng-mouseenter="hovering=true"
                         ng-mouseleave="hovering=false"
                         ng-click='selectBlock(block.blockNumber)'>
                         <div style="display: flex">
-                            <div class="block-icon" style="width:30px">
-                                <span style="color: #343644; font-size: 20px" ><b>block</b></span>
-                                <span style="color: #343644; font-size: 20px" ><b>{{block.blockNumber}}</b></span>
-                                <!--span style="color: #343644; font-size: 50px" class="glyphicon glyphicon-link bg-fade"></span-->
+                            <div class="block-icon">
+                                <span><b>block</b></span><br>
+                                <span><b>{{block.blockNumber}}</b></span>
                             </div>
-                            <div class="block-item-entries">
-                                <ul style="text-align: left">
+                            <div class="block-item-entries" ng-class="{'selected-item':hovering}">
+                                <ul style="text-align: left;padding: 10px;">
                                     <li class="block-item-entry"><label>Data Hash: </label> {{block.dataHash}}</li>
                                     <li class="block-item-entry"><label>Hash: </label> {{block.hash}}</li>
-                                    <li class="block-item-entry"><label>Previous Hash: </label> {{block.previousHash}}</li>
+                                    <li class="block-item-entry"><label>Previous Hash: </label> {{block.previousHash}}
+                                    </li>
+                                    <li class="block-item-entry"><label>Transaction Number: </label>
+                                        {{block.envelopeInfo.length}}
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -34,48 +45,77 @@ Inspired by http://dribbble.com/shots/917819-iPad-Calendar-Login?list=shots&sort
                 <ul class="list-group trx-list">
                     <li ng-repeat="trx in trxs" class="list-group-item trx-list-item">
                         <div style="display: flex">
-                            <div class="block-icon" style="width:30px">
-                                <span style="color: #343644; font-size: 20px" ><b>trx</b></span>
+                            <div class="block-icon">
+                                <span><b>trx</b></span><br>
+                                <span><b>{{trx.index}}</b></span>
                             </div>
                             <div class="trx-item-entries">
-                                <ul style="text-align: left">
+                                <ul style="text-align: left; padding: 10px;">
                                     <li class="trx-item-entry"><label>TRX Id: </label> {{trx.transactionId}}</li>
-                                    <li class="trx-item-entry"><label>tStamp: </label> {{trx.timeStamp}}</li>
+                                    <li class="trx-item-entry"><label>Time: </label> {{trx.timeStamp}}</li>
                                     <li class="trx-item-entry"><label>TRX Name: </label> {{trx.trxName}}</li>
-                                    <li ng-if="trx.trxName == 'updateReplenishmentRequestStatus'" class="trx-item-entry-child"><label> Replenishment Requet Id: </label> {{trx.trxInfo.replenishmentRequestId}}</li>
-                                    <li ng-if="trx.trxName == 'updateReplenishmentRequestStatus'" class="trx-item-entry-child"><label> New Status: </label> {{trx.trxInfo.newStatus}}</li>
-                                    <li ng-if="trx.trxName == 'createReplenishmentRequest'" class="trx-item-entry-child"><label> Replenishment Requet Id: </label> {{trx.trxInfo.replenishmentRequestId}}</li>
-                                    <li ng-if="trx.trxName == 'createReplenishmentRequest'" class="trx-item-entry-child"><label> Product Id: </label> {{trx.trxInfo.productId}}</li>
-                                    <li ng-if="trx.trxName == 'createReplenishmentRequest'" class="trx-item-entry-child"><label> Product Label: </label> {{trx.trxInfo.productLabel}}</li>
-                                    <li ng-if="trx.trxName == 'createReplenishmentRequest'" class="trx-item-entry-child"><label> Product Quantity: </label> {{trx.trxInfo.quantity}}</li>
-                                    <li ng-if="trx.trxName == 'createReplenishmentRequest'" class="trx-item-entry-child"><label> CS Card Ref: </label> {{trx.trxInfo.csCartReference}}</li>
+                                    <li ng-if="trx.trxName == 'updateReplenishmentRequestStatus'"
+                                        class="trx-item-entry-child"><label> Replenishment Requet Id: </label>
+                                        {{trx.trxInfo.replenishmentRequestId}}
+                                    </li>
+                                    <li ng-if="trx.trxName == 'updateReplenishmentRequestStatus'"
+                                        class="trx-item-entry-child"><label> New Status: </label>
+                                        {{trx.trxInfo.newStatus}}
+                                    </li>
+                                    <li ng-if="trx.trxName == 'createReplenishmentRequest'"
+                                        class="trx-item-entry-child"><label> Replenishment Requet Id: </label>
+                                        {{trx.trxInfo.replenishmentRequestId}}
+                                    </li>
+                                    <li ng-if="trx.trxName == 'createReplenishmentRequest'"
+                                        class="trx-item-entry-child"><label> Product Id: </label>
+                                        {{trx.trxInfo.productId}}
+                                    </li>
+                                    <li ng-if="trx.trxName == 'createReplenishmentRequest'"
+                                        class="trx-item-entry-child"><label> Product Label: </label>
+                                        {{trx.trxInfo.productLabel}}
+                                    </li>
+                                    <li ng-if="trx.trxName == 'createReplenishmentRequest'"
+                                        class="trx-item-entry-child"><label> Product Quantity: </label>
+                                        {{trx.trxInfo.quantity}}
+                                    </li>
+                                    <li ng-if="trx.trxName == 'createReplenishmentRequest'"
+                                        class="trx-item-entry-child"><label> CS Card Ref: </label>
+                                        {{trx.trxInfo.csCartReference}}
+                                    </li>
                                 </ul>
                             </div>
                         </div>
                     </li>
                 </ul>
 
+            </div>
+
+            <div style="text-align: left;margin-top: 20px;margin-left: 10px;">
+                <a class="next-btn btn btn-danger"
+                   ng-mouseenter="hovering1=true"
+                   ng-click="next()"
+                   ng-class="{'selected-btn':hovering1}"
+                   ng-mouseleave="hovering1=false"><b>NEXT</b> <span style="color: #ead040;font-weight: 100;">🡪</span></a>
+            </div>
+
+
+            <!-- div class="form-content">
+                <div class="form-group">
+                    <input ng-model="credentials['username']" ng-change="checkInput()" type="text" class="form-control input-underline input-lg" id="" placeholder="Email">
                 </div>
 
-
-
-                <!-- div class="form-content">
-                    <div class="form-group">
-                        <input ng-model="credentials['username']" ng-change="checkInput()" type="text" class="form-control input-underline input-lg" id="" placeholder="Email">
-                    </div>
-
-                    <div class="form-group">
-                        <input ng-model="credentials['password']" ng-change="checkInput()" type="password" class="form-control input-underline input-lg" id="" placeholder="Password">
-                    </div>
+                <div class="form-group">
+                    <input ng-model="credentials['password']" ng-change="checkInput()" type="password" class="form-control input-underline input-lg" id="" placeholder="Password">
                 </div>
+            </div>
 
-                <button type="submit" ng-model="loginDisabled" ng-disabled="getLoginDisabled()" class="btn btn-white btn-outline btn-lg btn-rounded">Login</button-->
+            <button type="submit" ng-model="loginDisabled" ng-disabled="getLoginDisabled()" class="btn btn-white btn-outline btn-lg btn-rounded">Login</button-->
 
-		</div>
-	</div>
+        </div>
+    </div>
 
-  <div>
-    <img style="position:fixed;left:50%;top:50%;" id="mySpinner" src="images/spinner2.gif" ng-show="getLoading()" />
-  </div>
+    <div>
+        <img style="position:fixed;left:50%;top:50%;" id="mySpinner" src="images/spinner2.gif" ng-show="getLoading()"/>
+    </div>
 
 </div>
